@@ -1,0 +1,95 @@
+<%include partials/generalheader.ejs%>
+<%include partials/sellheader.ejs%>
+    <script>
+    function goBack(){ 
+        window.history.back();}
+</script>
+
+<div class= "container">
+    <div class="row">
+        <div class="col-1">
+            <button class = "btn" onclick="goBack()">Back</button>
+        </div>
+        
+    <div class="container">
+    <div class="jumbotron">
+       <h1>Sell Equipment</h1>
+       <h2>Get Shit Done.</h2>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="container col-md-11" id="formcontainer">
+        
+        <form action="/buy/<%=tool._id%>?_method=PUT" method = "POST">
+            <div class="form-row">
+                <div class="form-group col-md-8" id="select">
+                    Select Category:
+                    <select  class="form-control" name = "tool[drop]" id = "tool[drop]" value=<%=tool.drop%>>
+                    <%include partials/options.ejs%>
+                    </select>
+                </div>
+                
+            <div class="form-group col-md-4 col-3">
+                     Title:<br>
+                    <input class="form-control" type="text" name="tool[title}"value=<%=tool.title%>>
+                </div>
+            </div>
+            <div class="form-group col-md-4 col-3">
+                     Price:<br>
+                    <input class="form-control" type="text" name="tool[price]"value=<%=tool.price%>>
+                </div>
+            </div>
+            <div class="form-row">    
+                <div class="form-group col-md-12">
+                    Description (include brand, condition, etc.):<br>
+                    <input type="text" class="form-control" name="tool[desc]" value=<%=tool.desc%>>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    Phone Number:<br>
+                    <input class="form-control" type="text" name="tool[phone]" value=<%=tool.phone%>>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                     City:<br>
+                     <input class="form-control" type="text" name="tool[place]" value=<%=tool.place%>>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                     Password:
+                     <input class="form-control" type="text" name="tool[password]" value=<%=tool.password%> >
+                </div>
+            </div>
+            <div class= "form-row" >
+                <div class="form-group col-md-12" id="image">
+                     Main image: <input class ="form-control" type="file" name="tool[image1]" ><br>
+                </div>
+            </div>
+            <div class= "form-row" >
+                <div class="form-group col-md-12" id="image">
+                     Image 2: <input class ="form-control" type="file" name="tool[image2]" ><br>
+                </div>
+            </div>
+            <div class= "form-row" >
+                <div class="form-group col-md-12" id="image">
+                     Image 3: <input class ="form-control" type="file" name="tool[image3]" ><br>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12" id="submit">
+                    <h3> Simple eh?</h3>
+                    <button type="submit" class="btn btn-lg">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-2"></div>
+</div> 
+
+    
+<form action="/buy/<%=tool._id%>?_method=DELETE" method="POST">
+    <button class="btn btn-danger">Delete</button>
+</form>
+<%include partials/footer.ejs%>

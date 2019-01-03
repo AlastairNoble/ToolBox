@@ -1,0 +1,51 @@
+<%include partials/homeheader.ejs%>
+<%include partials/contactheader.ejs%>
+<br><br>
+<div class="col-md-1"></div>
+<div class="container">
+    <div class="jumbotron">
+       <h1>Contact</h1>
+        <p>
+            Please email us if you have a comment or concern. Leave your name, email, subject, <br>and a small message and we will try to get back to you as soon as we can.
+        </p>
+        <p>
+        
+            <form class="contact__form" method="post" action="mail.php" >
+                 <!--Starting of successful form message -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="alert alert-success contact__msg" style="display: none" role="alert">
+                            Your message was sent successfully.
+                        </div>
+                    </div>
+                </div>
+                 <!--Ending of successful form message -->
+            
+                 <!--Element of the ajax contact form -->
+                <div class="row">
+                    <div class="col-md-4 form-group">
+                        <input name="name" type="text" class="form-control" placeholder="Name" required>
+                    </div><br>
+                    <div class="col-md-4 form-group">
+                        <input name="email" type="email" class="form-control" placeholder="Email" required>
+                    </div><br>
+                    <div class="col-md-8 form-group">
+                        <input name="subject" type="text" class="form-control" placeholder="Subject" required>
+                    </div><br>
+                    <div class="col-12 form-group">
+                        <textarea name="message" class="form-control" rows="3" placeholder="Message" required></textarea>
+                    </div><br>
+                    <div class="col-12">
+                        <input name="sendMail" type="submit" class="btn btn-success" value="Send Message">
+                    </div>
+                </div>
+            </form>
+            
+        </p>
+        <br><br>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="/main.js"></script>
+
+<%include partials/footer.ejs%>

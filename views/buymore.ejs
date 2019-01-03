@@ -1,0 +1,47 @@
+<%include partials/generalheader.ejs%>
+<%include partials/buyheader.ejs%>
+<br><br>
+<div class="jumbotron">
+    <div class="container col-md-8">
+        <form action= "/buy" method = "GET">
+            <h3>What are you looking for?</h3>
+            <div class="container row form-group">
+                <div class="col-sm-6">
+                    <select class="form-control" name = "search" id= "search">
+                        <%include partials/options.ejs%>
+                    </select>
+                </div>
+                <div class="col-sm-6">
+                <input class="form-control" type="text" name="keyword" placeholder="keyword">
+                </div>
+            </div>
+            <button class="btn" name="browse"> Browse </button>
+        </form>
+    </div>
+</div>
+                
+<div class="row text-center" style="display:flex; flex-wrap: wrap;">
+    <% tools.forEach(function(tools){ %>
+        <div class="col-lg-6 col-md-6">
+            <a href="/buy/<%=tools._id%>">
+                <div class="thumbnail"id="a">
+                    <img class="rounded"src = "<%=tools.image.url%>" alt="<% tools.image.id %>">
+                    <div class="caption">
+                        <h4><%= tools.title %></h4>
+                        <h5>$<%= tools.price %></h5>
+                        <h6><%= tools.place %></h6>
+                    </div>
+                </div>
+            </a>    
+        </div>
+    <% });%>
+</div>
+
+<div class="container col-sm-1">
+    <button class="btn" name="top">
+        <a  href="#top">To top</a> 
+    </button>
+</div>
+    
+</div>
+<%include partials/footer.ejs%>

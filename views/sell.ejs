@@ -1,0 +1,116 @@
+<%include partials/generalheader.ejs%>
+<%include partials/sellheader.ejs%>
+    <script>
+        //   function previewImage(){
+        //       var preview = document.querySelector('img'); //selects the query named img
+        //       var file    = document.querySelector('input[type=file]').files[0]; //sames as here
+        //       var reader  = new FileReader();
+        
+        //       reader.onloadend = function () {
+        //           preview.src = reader.result;
+        //       }
+        
+        //       if (file) {
+        //           reader.readAsDataURL(file); //reads the data as a URL
+        //       } else {
+        //           preview.src = "";
+        //       }
+        //   }
+        //   previewImage();  //calls the function named previewFile()
+          </script>
+<a href="/buy"><button class="btn" id="back">Back</button></a>
+
+<div class="container">
+    <div class="jumbotron">
+       <h1>Sell Equipment</h1>
+       <h2>Get it Done.</h2>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="container col-md-11" id="formcontainer">
+        
+        <form action="/sell" method = "POST" enctype="multipart/form-data">
+            <h4>
+                <% if(errors){%>
+                    <% errors.forEach(function(errors){ %>
+                        <%= errors.msg %><br>
+                    <% }); %>
+                <% };%>
+            </h4>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <input class="form-control" type="text" name="tool[tittle]" placeholder="Title">
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <input class="form-control" type="text" name="tool[price]" placeholder="Price">
+                </div>
+            </div>
+            
+            <div class="form-row">    
+                <div class="form-group col-md-12" >
+                    <textarea class="form-control" name="tool[desc]" rows="5" placeholder="Description (include brand, condition, etc.)"></textarea>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <input class="form-control" type="text" name="tool[phone]" placeholder="Phone number">
+                </div>
+            
+                <!--<div class="form-row">-->
+                    <div class="form-group col-md-4">
+                         <input class="form-control" type="text" name="tool[place]" placeholder="City" >
+                    </div>
+                <!--</div>-->
+                
+                <!--<div class="form-row">-->
+                    <div class="form-group col-md-4">
+                        <input class="form-control" type="text" name="tool[password]" placeholder="Password" >
+                    </div>
+                <!--</div>-->
+            </div>
+            
+    
+            <div class="form-row">
+                <div class="form-group col-md-6" id="select">
+                    <b>Select Category:</b>
+                    <select  class="form-control" name = "tool[drop]" id = "tool[drop]">
+                    <%include partials/options.ejs%>
+                    </select>
+                </div>
+            </div>
+            
+            
+            
+            
+            <div class= "form-row">
+                <div class="form-group col-md-12 custom-file" id="im">
+            <!--<form action="upload.php" method="post" enctype="multipart/form-data">-->
+                <!--Select images to upload:<br>-->
+                <b>Main image:</b>
+                <input class ="form-contro custom-form-input" type="file" name="file" id="file" accept= "image/*"><br>
+                <!--<label for = "image" class="custom-file-label"> </label>-->
+                 </div>
+            </div>
+           
+            
+            
+            
+            
+            <div class="form-row">
+                <div class="form-group col-md-12" id="submit">
+                    <h3> Simple eh?</h3>
+                    <button type="submit" class="btn btn-lg">Submit</button>
+                </div>
+            </div>
+            
+            </div>
+        </form>
+    </div>
+    <div class="col-md-2"></div>
+</div> 
+
+
+<%include partials/footer.ejs%>

@@ -1,0 +1,59 @@
+<%include partials/generalheader.ejs%>
+<%include partials/detailsheader.ejs%>
+<script>
+    function goBack(){ 
+        window.history.back();}
+</script>
+
+<div class= "container">
+    <div class="row">
+        <div class="col-1">
+            <button class = "btn" onclick="goBack()">Back</button>
+        </div>
+        <div class="col-10">
+            <h1><%=tool.title%></h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <p><%=tool.desc%></p><br><br>
+            <p><b>Phone:</b> <%=tool.phone%></p>
+            <p><b>Location:</b><%=tool.place%></p>
+        </div> 
+        <h1>
+            <div class="col-md-8">
+                 <img src="<%=tool.image%>" width="500"><br>
+                 <img src="<%=tool.image2%>" width="200">
+                 <img src="<%=tool.image3%>" width="200">
+            </div>
+        </h1>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12" id="bottomrow">
+            <div class="form-group">
+                <span><b>Posted:</b> <%=tool.created.toDateString()%></span>
+            </div>
+            <!--<form action="/buy/<%=//tool._id%>/edit" method = "GET">-->
+            <!--    <div class="form-group">-->
+            <!--        enter password to edit or delete:<br> -->
+            <!--        <input type="text" name="pass" placeholder="passwerd check">-->
+            <!--        <button class = "btn"> subm!t </button>  -->
+            <!--    </div>-->
+            <!--</form>-->
+        </div>
+    </div>
+</div>
+<br><br>
+<form action="/buy/<%=tool._id%>/edit" method = "GET">
+    <div class="form-group">
+        <input type="text" name="pass" placeholder="Enter password to edit">
+        <button class = "btn"> Go </button>  
+    </div>
+</form>
+            
+<!--<form action="/buy/<%=//tool._id%>?_method=DELETE" method="POST">-->
+<!--    <button class="btn btn-danger">Delete</button>-->
+<!--</form>    -->
+
+<%include partials/footer.ejs%>
