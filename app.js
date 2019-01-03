@@ -245,7 +245,7 @@ app.delete("/buy/:id", function(req, res){
 });
 
 app.get("*", function(req, res) {
-    res.send("you fucked up homo");
+    res.send("you fucked up");
 });
 
 function escapeRegex(text){
